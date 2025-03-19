@@ -20,3 +20,32 @@ const mainData = {
     ],
 }
 
+    // Get the template element
+    const template = document.getElementById('content-template');
+
+    // Function to create a new section instance
+    function createSection(classType, title, text, imgAlt, imgSrc) {
+        // Clone the template content
+        const clone = template.content.cloneNode(true);
+
+        // Customize the content
+        clone.querySelector('section').className = classType;
+        clone.querySelector('h2').textContent = title;
+        clone.querySelector('p').textContent = text;
+        
+        clone.querySelector('img').alt = imgAlt;
+        clone.querySelector('img').src = imgSrc;
+        // Append to container
+        document.getElementById('container').appendChild(clone);
+    }
+
+    // Example of adding multiple sections dynamically
+for(const section of mainData.sections){
+    createSection(
+        section.class,
+        section.title,
+        section.textContent,
+        section.image.title,
+        section.image.src
+    );
+}
