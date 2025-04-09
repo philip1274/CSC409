@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<input id = "input1">
+</input>
+<button id = "button1">
+    Start
+</button>
+
+<script>
+    button = document.getElementById("button1");
+    button.addEventListener("click",countDown);
+
+    intervalID = 0;
+    second = 0;
+    inputNum = 0;
+
+    function printNum(){
+        second++;
+        console.log(second)
+        if(second >= inputNum){
+            
+            clearInterval(intervalID)
+            second = 0;
+        }
+    }
+    
+
+    
+    function countDown(){
+        inputNum = parseInt(document.getElementById("input1").value);
+        
+        console.log(inputNum)
+        console.log(typeof inputNum)
+        if(typeof inputNum === 'number' || inputNum === Math.floor(inputNum)){
+            console.log("this is a number")
+            
+            intervalID = setInterval(printNum, 1000)
+        }
+        else{
+            console.log("not a valid Number")
+        }
+    }
+    //intervalID = setInterval(printNum, 1000)
+    /**/
+</script>
+
+</html>
