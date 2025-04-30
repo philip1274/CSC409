@@ -55,6 +55,18 @@
             <button type="submit">Send Message</button>
           </form>
         </section>
+
+        <script>
+          document
+            .querySelector('form')        
+            .addEventListener('submit', e => {
+              e.preventDefault();          
+              e.target.reset();       
+              
+
+          });
+          </script>
+          
       </main>
 
       <!-- Footer -->
